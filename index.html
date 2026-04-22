@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAQUERÍA LA SUPREMA | Menú Digital</title>
+    <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="pb-32">
+
+    <header class="main-header">
+        <h1 class="font-title text-2xl italic text-white" id="page-title">Menú de Tacos</h1>
+        <p class="tagline">Sabor Real a tu Domicilio</p>
+    </header>
+
+    <main class="max-w-md mx-auto p-4">
+        <section id="page-tacos" class="page active">
+            <div class="grid grid-cols-1 gap-4" id="menu-tacos"></div>
+        </section>
+
+        <section id="page-bebidas" class="page">
+            <div class="grid grid-cols-1 gap-4" id="menu-bebidas"></div>
+        </section>
+
+        <section id="page-carrito" class="page">
+            <div class="glass-container">
+                <h2 class="section-title">Tu Pedido</h2>
+                <div id="cart-summary" class="space-y-3 mb-6 text-sm"></div>
+
+                <div class="space-y-4">
+                    <h2 class="section-title">Datos de Entrega</h2>
+                    <input type="text" id="user-name" placeholder="Tu Nombre completo" class="input-dark">
+                    <input type="text" id="user-address" placeholder="Domicilio (Calle, Número, Colonia)" class="input-dark">
+                    <input type="text" id="user-ref" placeholder="Referencia (Ej: Casa portón negro)" class="input-dark">
+                    
+                    <div class="total-container">
+                        <span>Total:</span>
+                        <span id="final-total">$0.00</span>
+                    </div>
+
+                    <button onclick="sendOrder()" class="btn-whatsapp">
+                        Confirmar y Enviar WhatsApp
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <nav class="bottom-nav">
+        <button onclick="showPage('tacos', 'Menú de Tacos')" class="nav-item active" id="nav-tacos">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7Z"/><path d="M12 12V7"/></svg>
+            <span>TACOS</span>
+        </button>
+        <button onclick="showPage('bebidas', 'Bebidas')" class="nav-item" id="nav-bebidas">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 22h2c5 0 7-2 7-7V5c0-2-2-3-3-3H7C6 2 4 3 4 5v10c0 5 2 7 7 7Z"/></svg>
+            <span>BEBIDAS</span>
+        </button>
+        <button onclick="showPage('carrito', 'Finalizar Pedido')" class="nav-item relative" id="nav-carrito">
+            <div id="badge" class="badge hidden">0</div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+            <span>ORDEN</span>
+        </button>
+    </nav>
+
+    <script src="javascript.js"></script>
+</body>
+</html>
